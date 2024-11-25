@@ -16,7 +16,7 @@ for i, metrics_data in enumerate(data):
     
 
     metrics_df[['precision', 'recall', 'f1-score']].plot(kind='bar', figsize=(15, 6))
-    plt.title(f'Precision, Recall, and F1-Score for Data Set {i+1}')
+    plt.title(f'Precision, Recall, and F1-Score for epoch {i+1}')
     plt.ylabel('Score')
     plt.xlabel('Class')
     plt.xticks(rotation=45)
