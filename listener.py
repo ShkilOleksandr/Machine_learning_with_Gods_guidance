@@ -6,6 +6,7 @@ import os
 from datetime import datetime
 import matplotlib.pyplot as plt
 
+
 SPECTROGRAM_DIR = 'NewSpec' 
 
 # Parameters
@@ -66,7 +67,7 @@ def process_audio_file(audio, sr):
     output_path = os.path.join(SPECTROGRAM_DIR, output_filename)
     save_spectrogram(audio, sr, output_path)
 
-
+os.system('rm ./NewSpec/*')
 # Start a thread to listen for the stop command
 stop_thread = threading.Thread(target=stop_recording)
 stop_thread.start()
@@ -74,10 +75,11 @@ stop_thread.start()
 # Record audio
 audio = record_audio()
 
-# Normalize the audio (optional)
+# Normalize the audio 
 audio = librosa.util.normalize(audio)
 
-# Output the results
 print(f"Audio recorded: {audio.shape}, Sampling rate: {sr}")
 
 process_audio_file(audio, sr)
+
+os.system('python3 program.py')
